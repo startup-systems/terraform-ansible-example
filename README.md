@@ -8,13 +8,8 @@ This repository is an example of deploying an provisioning a server on Amazon We
     * [Terraform](https://www.terraform.io/)
     * [Terraform Inventory](https://github.com/adammck/terraform-inventory)
     * Python 2
-1. [Install Ansible](http://docs.ansible.com/ansible/intro_installation.html). The easy way (requires [pip](https://pip.pypa.io/en/stable/installing/)):
-
-    ```sh
-    cd ansible
-    pip install -r requirements.txt
-    cd -
-    ```
+    * [pip](https://pip.pypa.io/en/stable/installing/)
+1. Set up AWS credentials. The easiest way to do so is by [setting up the AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html).
 
 ## Usage
 
