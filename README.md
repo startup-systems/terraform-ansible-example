@@ -17,12 +17,15 @@ This repository is an example of deploying an provisioning a server on Amazon We
 ./deploy.sh
 ```
 
-Note that `./deploy.sh` is [idempotent](http://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation).
+If it is successful, you should see an `address` printed out at the end. Visit this URL in your browser, and the page should say "Welcome to nginx!"
 
-If you have [multiple AWS accounts/profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-multiple-profiles), run with
+### Notes
 
-```sh
-AWS_PROFILE=something ./deploy.sh
-```
+* `./deploy.sh` is [idempotent](http://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation).
+* If you have [multiple AWS accounts/profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-multiple-profiles), run with
 
-You can override any of [the Terraform variables](terraform/vars.tf) using [a `terraform.tfvars` file](https://www.terraform.io/docs/configuration/variables.html#variable-files) under the `terraform/` directory.
+    ```sh
+    AWS_PROFILE=something ./deploy.sh
+    ```
+
+* You can override any of [the Terraform variables](terraform/vars.tf) using [a `terraform.tfvars` file](https://www.terraform.io/docs/configuration/variables.html#variable-files) under the `terraform/` directory.
