@@ -24,3 +24,11 @@ This repository is an example of deploying an provisioning a server on Amazon We
 ```
 
 Note that `./deploy.sh` is [idempotent](http://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation).
+
+If you have [multiple AWS accounts/profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-multiple-profiles), run with
+
+```sh
+AWS_PROFILE=something ./deploy.sh
+```
+
+You can then override [the `profile` variable (and others)](terraform/vars.tf) to match using [a `terraform.tfvars` file](https://www.terraform.io/docs/configuration/variables.html#variable-files) under the `terraform/` directory.

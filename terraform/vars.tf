@@ -1,5 +1,5 @@
 variable "profile" {
-  default = "cornell"
+  default = "default"
 }
 
 variable "region" {
@@ -19,7 +19,7 @@ variable "public_key_path" {
 }
 
 variable "key_name" {
-  default = "alf239-tf-ansible-gsa-mac"
+  default = "terraform-ansible-example-key"
 }
 
 variable "vm_user" {
@@ -29,7 +29,6 @@ variable "vm_user" {
 variable "tags" {
   type = "map"
   default = {
-    Owner = "alf239@cornell.edu"
     Repo = "https://github.com/startup-systems/terraform-ansible-example"
     Terraform = true
   }
