@@ -1,2 +1,1 @@
-ansible
-boto
+ansible~=2.2
