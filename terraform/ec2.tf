@@ -26,10 +26,9 @@ resource "aws_instance" "web" {
   # Our Security group to allow HTTP and SSH access
   vpc_security_group_ids = ["${aws_security_group.default.id}"]
 
-  # We're going to launch into the same subnet as our ELB. In a production
-  # environment it's more common to have a separate private subnet for
-  # backend instances.
   subnet_id = "${aws_subnet.default.id}"
+
+  associate_public_ip_address = true
 
   # force Terraform to wait until a connection can be made, so that Ansible doesn't fail when trying to provision
   provisioner "remote-exec" {

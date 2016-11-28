@@ -17,7 +17,7 @@ This repository is an example of deploying an provisioning a server on Amazon We
 ./deploy.sh
 ```
 
-If it is successful, you should see an `address` printed out at the end. Visit this URL in your browser, and the page should say "Welcome to nginx!"
+If it is successful, you should see an `address` printed out at the end. Visit this in your browser, and the page should say "Welcome to nginx!"
 
 ### Notes
 
