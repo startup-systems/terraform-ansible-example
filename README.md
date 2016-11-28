@@ -25,4 +25,4 @@ If you have [multiple AWS accounts/profiles](http://docs.aws.amazon.com/cli/late
 AWS_PROFILE=something ./deploy.sh
 ```
 
-You can then override [the `profile` variable (and others)](terraform/vars.tf) to match using [a `terraform.tfvars` file](https://www.terraform.io/docs/configuration/variables.html#variable-files) under the `terraform/` directory.
+You can override any of [the Terraform variables](terraform/vars.tf) using [a `terraform.tfvars` file](https://www.terraform.io/docs/configuration/variables.html#variable-files) under the `terraform/` directory.

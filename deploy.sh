@@ -3,6 +3,10 @@
 set -e
 set -x
 
+if [ ! -z "$AWS_PROFILE" ]; then
+  export TF_VAR_profile="$AWS_PROFILE"
+fi
+
 cd terraform
 terraform apply
 
