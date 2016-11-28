@@ -30,4 +30,11 @@ resource "aws_instance" "web" {
   # environment it's more common to have a separate private subnet for
   # backend instances.
   subnet_id = "${aws_subnet.default.id}"
+
+  # force Terraform to wait until a connection can be made, so that Ansible doesn't fail when trying to provision
+  provisioner "remote-exec" {
+    inline = [
+      "echo 'Remote execution connected.'"
+    ]
+  }
 }

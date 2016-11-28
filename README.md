@@ -15,7 +15,6 @@ This repository is an example of deploying an provisioning a server on Amazon We
 
 ```sh
 ./deploy.sh
-# if you get an SSH connection error the first time this is run, wait a minute or so, and try again
 ```
 
 Note that `./deploy.sh` is [idempotent](http://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation).
