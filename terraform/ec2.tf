@@ -1,4 +1,5 @@
 locals {
+  # The default username for our AMI
   vm_user = "ubuntu"
 }
 
@@ -25,15 +26,6 @@ resource "aws_key_pair" "auth" {
 }
 
 resource "aws_instance" "web" {
-  # The connection block tells our provisioner how to
-  # communicate with the resource (instance)
-  connection {
-    # The default username for our AMI
-    user = "${local.vm_user}"
-
-    # The connection will use the local SSH agent for authentication.
-  }
-
   instance_type = "t2.micro"
   tags = "${var.tags}"
   ami = "${data.aws_ami.ubuntu.id}"
@@ -50,8 +42,12 @@ resource "aws_instance" "web" {
 
   # force Terraform to wait until a connection can be made, so that Ansible doesn't fail when trying to provision
   provisioner "remote-exec" {
-    inline = [
-      "echo 'Remote execution connected.'"
-    ]
+    # The connection will use the local SSH agent for authentication
+    inline = ["echo Successfully connected"]
+
+    # The connection block tells our provisioner how to communicate with the resource (instance)
+    connection {
+      user = "${local.vm_user}"
+    }
   }
 }
