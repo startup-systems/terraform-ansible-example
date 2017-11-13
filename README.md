@@ -32,7 +32,6 @@ This repository sets up:
 
 ```sh
 export AWS_DEFAULT_REGION=us-east-1
-export AWS_PROFILE=default
 
 ./deploy.sh
 ```
@@ -42,10 +41,4 @@ export AWS_PROFILE=default
 ### Notes
 
 * `./deploy.sh` is [idempotent](http://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation).
-* If you have [multiple AWS accounts/profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-multiple-profiles), run with
-
-    ```sh
-    AWS_PROFILE=something ./deploy.sh
-    ```
-
-* You can override any of [the Terraform variables](terraform/vars.tf) using [a `terraform.tfvars` file](https://www.terraform.io/docs/configuration/variables.html#variable-files) under the `terraform/` directory.
+* [Information](https://www.terraform.io/intro/getting-started/variables.html#assigning-variables) about overriding [the Terraform variables](terraform/vars.tf).
