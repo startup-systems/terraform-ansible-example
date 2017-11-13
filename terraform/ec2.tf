@@ -38,8 +38,6 @@ resource "aws_instance" "web" {
 
   subnet_id = "${aws_subnet.default.id}"
 
-  associate_public_ip_address = true
-
   # force Terraform to wait until a connection can be made, so that Ansible doesn't fail when trying to provision
   provisioner "remote-exec" {
     # The connection will use the local SSH agent for authentication

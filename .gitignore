@@ -1,6 +1,6 @@
 # terraform
 .terraform/
-*.tfstate
+*.tfstate*
 *.tfstate.backup
 *.tfvars
 

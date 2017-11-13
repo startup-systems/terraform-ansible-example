@@ -1,6 +1,9 @@
 # Terraform+Ansible Example
 
-This repository is the near-simplest example of deploying an provisioning a web server on Amazon Web Services (AWS), using [Terraform](https://www.terraform.io/) and [Ansible](http://docs.ansible.com/ansible/). The Terraform part is based on their [Basic Two-Tier AWS Architecture](https://www.terraform.io/intro/examples/aws.html) example.
+This repository is the near-simplest example of deploying an provisioning a web server on Amazon Web Services (AWS), using [Terraform](https://www.terraform.io/) and [Ansible](http://docs.ansible.com/ansible/). Based on:
+
+* [Terraform's Basic Two-Tier AWS Architecture](https://www.terraform.io/intro/examples/aws.html) example
+* [AWS's VPC with a Single Public Subnet](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario1.html) example
 
 ## Details
 
