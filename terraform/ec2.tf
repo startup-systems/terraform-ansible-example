@@ -1,3 +1,24 @@
+locals {
+  vm_user = "ubuntu"
+}
+
+# Get the latest Ubuntu Xenial AMI
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["099720109477"] # Canonical
+}
+
 resource "aws_key_pair" "auth" {
   key_name   = "${var.key_name}"
   public_key = "${file(var.public_key_path)}"
@@ -8,17 +29,14 @@ resource "aws_instance" "web" {
   # communicate with the resource (instance)
   connection {
     # The default username for our AMI
-    user = "${var.vm_user}"
+    user = "${local.vm_user}"
 
     # The connection will use the local SSH agent for authentication.
   }
 
   instance_type = "t2.micro"
   tags = "${var.tags}"
-
-  # Lookup the correct AMI based on the region
-  # we specified
-  ami = "${lookup(var.aws_amis, data.aws_region.current.name)}"
+  ami = "${data.aws_ami.ubuntu.id}"
 
   # The name of our SSH keypair
   key_name = "${var.key_name}"
