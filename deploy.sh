@@ -8,6 +8,7 @@ if [ ! -z "$AWS_PROFILE" ]; then
 fi
 
 cd terraform
+terraform init
 terraform apply
 
 cd ../ansible

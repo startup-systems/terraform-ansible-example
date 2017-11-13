@@ -19,7 +19,7 @@ This repository sets up:
 ## Setup
 
 1. Install the following locally:
-    * [Terraform](https://www.terraform.io/)
+    * [Terraform](https://www.terraform.io/) >= 0.10.0
     * [Terraform Inventory](https://github.com/adammck/terraform-inventory)
     * Python 2
     * [pip](https://pip.pypa.io/en/stable/installing/)
