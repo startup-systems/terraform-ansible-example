@@ -18,7 +18,7 @@ resource "aws_instance" "web" {
 
   # Lookup the correct AMI based on the region
   # we specified
-  ami = "${lookup(var.aws_amis, var.region)}"
+  ami = "${lookup(var.aws_amis, data.aws_region.current.name)}"
 
   # The name of our SSH keypair
   key_name = "${var.key_name}"

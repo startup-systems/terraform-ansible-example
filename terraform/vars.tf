@@ -1,11 +1,3 @@
-variable "profile" {
-  default = "default"
-}
-
-variable "region" {
-  default = "us-east-1"
-}
-
 variable "aws_amis" {
   # Ubuntu Server 16.04 LTS (HVM), SSD Volume Type
   default = {

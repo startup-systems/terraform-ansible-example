@@ -31,10 +31,13 @@ This repository sets up:
 ## Usage
 
 ```sh
+export AWS_DEFAULT_REGION=us-east-1
+export AWS_PROFILE=default
+
 ./deploy.sh
 ```
 
-If it is successful, you should see an `address` printed out at the end. Visit this in your browser, and the page should say "Welcome to nginx!"
+[More information about the AWS environment variables](https://www.terraform.io/docs/providers/aws/#environment-variables). If it is successful, you should see an `address` printed out at the end. Visit this in your browser, and the page should say "Welcome to nginx!"
 
 ### Notes
 
