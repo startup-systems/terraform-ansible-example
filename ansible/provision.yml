@@ -8,14 +8,62 @@
   pre_tasks:
     - name: Install python for Ansible
       become: true
-      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      raw: test -e /usr/bin/python || (sudo apt -y update && sudo apt install -y python-minimal)
       changed_when: false
     - setup: # aka gather_facts
 
   tasks:
 
-    - name: Install nginx
+    - name: Install unzip
       become: true
       apt:
-        name: nginx
+        name: unzip
         update_cache: true
+
+    - name: Install java
+      become: true
+      apt:
+        name: openjdk-8-jre
+        update_cache: true
+
+    - name: get Takipi tomcat
+      become: true
+      get_url: url=http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.5/bin/apache-tomcat-8.5.5.zip dest=/mnt/Tomcat.zip
+
+
+    - name: extract Takipi tomcat
+      become: true
+      unarchive:
+        src: /mnt/Tomcat.zip
+        dest: /mnt/
+        remote_src: yes
+
+    - name: clean tomcat
+      become: true
+      shell: rm -rf *
+      args:
+        chdir: /mnt/apache-tomcat-8.5.5/webapps/
+    - name: create folder
+      become: true
+      file:
+        path: /mnt/apache-tomcat-8.5.5/webapps/ROOT
+        state: directory
+        mode: 0755
+
+    - name: get takipi backend
+      become: true
+      get_url: url=https://s3-eu-west-1.amazonaws.com/alon-dotan/backend.war dest=/mnt/apache-tomcat-8.5.5/webapps/backend.war
+
+    - name: extract Takipi Backend
+      become: true
+      unarchive:
+        src: /mnt/apache-tomcat-8.5.5/webapps/backend.war
+        dest: /mnt/apache-tomcat-8.5.5/webapps/ROOT/
+        remote_src: yes
+
+    - name: start tomcat
+      become: true
+      shell: nohup bash ./catalina.sh start
+      args:
+        chdir: /mnt/apache-tomcat-8.5.5/bin
+      tags: run

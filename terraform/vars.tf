@@ -6,6 +6,10 @@ variable "key_name" {
   default = "terraform-ansible-example-key"
 }
 
+variable "name" {
+  default = "Terraform-default-name"
+}
+
 variable "tags" {
   type = "map"
   default = {
