@@ -20,23 +20,21 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-resource "aws_key_pair" "auth" {
-  key_name   = "${var.key_name}"
-  public_key = "${file(var.public_key_path)}"
-}
-
-resource "aws_instance" "web" {
-  instance_type = "t2.micro"
-  tags = "${var.tags}"
+resource "aws_instance" "inst" {
+  instance_type = "m3.xlarge"
+  tags = "${merge(map("Name", "${var.name}"), "${var.tags}")}"
   ami = "${data.aws_ami.ubuntu.id}"
-
+  subnet_id = "subnet-02cb3074"
+  associate_public_ip_address = "true"
   # The name of our SSH keypair
   key_name = "${var.key_name}"
 
-  # Our Security group to allow HTTP and SSH access
-  vpc_security_group_ids = ["${aws_security_group.default.id}"]
+  root_block_device {
+    volume_size = "180"
+  }
 
-  subnet_id = "${aws_subnet.default.id}"
+# Our Security group to allow HTTP and SSH access
+  vpc_security_group_ids = ["sg-102d636c"]
 
   # force Terraform to wait until a connection can be made, so that Ansible doesn't fail when trying to provision
   provisioner "remote-exec" {
