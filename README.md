@@ -24,7 +24,7 @@ This repository sets up:
 1. Install the following locally:
     * [Terraform](https://www.terraform.io/) >= 0.10.0
     * [Terraform Inventory](https://github.com/adammck/terraform-inventory)
-    * Python 2
+    * Python (see [requirements](https://docs.ansible.com/ansible/latest/intro_installation.html#control-machine-requirements))
     * [pip](https://pip.pypa.io/en/stable/installing/)
 1. Set up AWS credentials in [`~/.aws/credentials`](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-config-files).
     * The easiest way to do so is by [setting up the AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html).
