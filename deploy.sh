@@ -12,7 +12,6 @@ terraform init
 terraform apply -auto-approve
 
 cd ../ansible
-pip install -r requirements.txt
 # pull the instance information from Terraform, and run the Ansible playbook against it to configure
 TF_STATE=../terraform/terraform.tfstate ansible-playbook "--inventory-file=$(which terraform-inventory)" provision.yml
 

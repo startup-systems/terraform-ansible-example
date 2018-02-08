@@ -35,11 +35,17 @@ This repository sets up:
 
 ```sh
 export AWS_DEFAULT_REGION=us-east-1
+pip install -r requirements.txt
 
 ./deploy.sh
 ```
 
 [More information about the AWS environment variables](https://www.terraform.io/docs/providers/aws/#environment-variables). If it is successful, you should see an `address` printed out at the end. Visit this in your browser, and the page should say "Welcome to nginx!"
+
+### Notes
+
+* `./deploy.sh` is [idempotent](http://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation).
+* [Information](https://www.terraform.io/intro/getting-started/variables.html#assigning-variables) about overriding [the Terraform variables](terraform/vars.tf).
 
 ## Cleanup
 
@@ -47,8 +53,3 @@ export AWS_DEFAULT_REGION=us-east-1
 cd terraform
 terraform destroy
 ```
-
-### Notes
-
-* `./deploy.sh` is [idempotent](http://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation).
-* [Information](https://www.terraform.io/intro/getting-started/variables.html#assigning-variables) about overriding [the Terraform variables](terraform/vars.tf).
