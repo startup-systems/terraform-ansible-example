@@ -41,6 +41,13 @@ export AWS_DEFAULT_REGION=us-east-1
 
 [More information about the AWS environment variables](https://www.terraform.io/docs/providers/aws/#environment-variables). If it is successful, you should see an `address` printed out at the end. Visit this in your browser, and the page should say "Welcome to nginx!"
 
+## Cleanup
+
+```sh
+cd terraform
+terraform destroy
+```
+
 ### Notes
 
 * `./deploy.sh` is [idempotent](http://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation).
